@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# 모달, 버튼을 포함한 웹페이지 연습하기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 구현 사진
 
-## Available Scripts
+## 요구사항
 
-In the project directory, you can run:
+- Button
 
-### `yarn start`
+  - styled-components를 이용해 구현하며, props를 적절하게 활용할 것
+  - 버튼 label에 선택적으로 아이콘을 넣을 수 있도록 구현
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Modal
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  - 취소, 확인이 있고 overlay 클릭 시 모달이 닫히지 않음
+  - 닫기 버튼만 있고, overlay 클릭 시 모달이 닫힘
+  - 모달을 on 시키는 버튼의 형태는 각각 달라야 하며 위에서 만든 버튼 재사용 가능
 
-### `yarn test`
+- Input
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - 일반 형식의 input
+  - 숫자를 넣었을 때 3자리 숫자마다 ,가 찍히는 input
+  - form을 구현하고 각 input에 값 입력 후 저장버튼 클릭 시 {name: '아무 텍스트', price: '콤마가 없는 금액'}을 alert에 표시
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Select
+  - select 클릭 시 option들이 나오고 해당 option 클릭 시 select 값 변경
+  - 부모 요소에 overflow: hidden이 있더라도 자식 컴포넌트가 부모 컴포넌트를 넘어갔을 때 가려지지 않아야 함
