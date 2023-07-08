@@ -1,16 +1,16 @@
 import React from "react";
-import Buttons from "./Container/Buttons";
-import Input from "./Container/Input";
-import Selectes from "./Container/Selectes";
-import Modals from "./Container/Modals";
+import Button from "./Container/ButtonContainer";
+import Input from "./Container/InputContainer";
+import Select from "./Container/SelectContainer";
+import Modal from "./Container/ModalContainer";
 
 function App() {
   return (
     <div>
-      <Buttons />
+      <Button />
       <Input />
-      <Modals />
-      <Selectes />
+      <Modal />
+      <Select />
     </div>
   );
 }

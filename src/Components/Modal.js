@@ -1,93 +1,77 @@
 import React from "react";
-import { styled } from "styled-components";
-import Button from "./Button";
+import Button from "../Components/Button";
+import { css, styled } from "styled-components";
 
-export function Modal({ onToggle }) {
+export const SmallModalInside = ({ text, onToggle }) => {
   return (
-    <>
-      <ModalWrap>
-        <ModalContainer>
-          <div>
-            닫기와 확인 버튼 2개가 있고, 외부 영역을 눌러도 닫히지 않아요.
-          </div>
-          <ButtonSection>
-            <Button size={"small"} color={"negative"} onClick={onToggle}>
-              닫기
-            </Button>
-            <Button size={"small"} color={"primary"}>
-              확인
-            </Button>
-          </ButtonSection>
-        </ModalContainer>
-      </ModalWrap>
-    </>
+    <ModalInsideStyle btn="twoButton">
+      <p>{text}</p>
+      <div className="btns">
+        <Button size="small" color="negative" onClick={onToggle}>
+          닫기
+        </Button>
+        <Button size="small" color="primary">
+          확인
+        </Button>
+      </div>
+    </ModalInsideStyle>
   );
-}
+};
 
-export function ModalSecond({ onToggle }) {
+export const LargeModalInside = ({ text1, text2, onToggle }) => {
   return (
-    <>
-      <ModalWrap onClick={onToggle}>
-        <ModalSecondContainer>
-          <div>
-            닫기 버튼 1개가 있고,
-            <br />
-            외부 영역을 누르면 모달이 닫혀요.
-          </div>
-          <CircleButton onClick={onToggle}>X</CircleButton>
-        </ModalSecondContainer>
-      </ModalWrap>
-    </>
+    <ModalInsideStyle btn="oneButton">
+      <p>{text1}</p>
+      <p>{text2}</p>
+      <button onClick={onToggle}>X</button>
+    </ModalInsideStyle>
   );
-}
+};
 
-const ModalWrap = styled.div`
-  width: 100%;
-  height: 100vh;
-  inset: 0px;
-  position: fixed;
-  background-color: rgba(221, 221, 221, 0.8);
-`;
-const ModalContainer = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 12px;
-  box-sizing: border-box;
-  padding: 24px;
-  background-color: rgb(255, 255, 255);
+const ModalInsideStyle = styled.div`
   width: 500px;
   height: 300px;
-`;
-const ButtonSection = styled.div`
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  display: flex;
-  gap: 5px;
-`;
-
-const ModalSecondContainer = styled.div`
+  background-color: white;
+  z-index: 100;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 12px;
+  padding: 23px;
+  border-radius: 15px;
   box-sizing: border-box;
-  padding: 24px;
-  background-color: rgb(255, 255, 255);
-  width: 300px;
-  height: 200px;
-`;
 
-const CircleButton = styled.button`
-  border: 1px solid rgb(221, 221, 221);
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  cursor: pointer;
-  position: absolute;
-  top: 12px;
-  right: 12px;
+  ${(props) =>
+    props.btn === "oneButton" &&
+    css`
+      width: 320px;
+      height: 200px;
+
+      button {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 1px solid lightgray;
+        position: absolute;
+        top: 7%;
+        right: 4%;
+        cursor: pointer;
+        &:active {
+          filter: brightness(70%);
+        }
+      }
+    `}
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .btns {
+    position: absolute;
+    top: 80%;
+    right: 2%;
+    display: flex;
+    gap: 10px;
+  }
 `;

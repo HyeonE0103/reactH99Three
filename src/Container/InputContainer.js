@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import Button from "../Components/Button";
+import Input from "../Components/Input";
 
-function Input() {
+function InputContainer() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
@@ -20,22 +21,25 @@ function Input() {
       alert("이름과 가격을 입력해주세요");
     }
   };
+
   return (
     <>
       <h1>Input</h1>
       <InputWrap>
         <div>
-          <label>이름</label>
-          <InputBox type="text" value={name} onChange={onChangeName} />
+          <Input type="text" value={name} onChange={onChangeName}>
+            이름
+          </Input>
         </div>
         <div>
-          <label>가격</label>
-          <InputBox
+          <Input
             type="text"
             value={price}
             onChange={onChangePrice}
-            placeholder="0"
-          />
+            initvalue="0"
+          >
+            가격
+          </Input>
         </div>
         <Button size={"small"} color={"primary"} onClick={onClickHandler}>
           저장
@@ -44,6 +48,7 @@ function Input() {
     </>
   );
 }
+
 const InputWrap = styled.form`
   display: flex;
   flex-direction: row;
@@ -52,14 +57,4 @@ const InputWrap = styled.form`
     vertical-align: middle;
   }
 `;
-const InputBox = styled.input`
-  border: 1px solid rgb(51, 51, 51);
-  height: 40px;
-  width: 200px;
-  outline: none;
-  border-radius: 8px;
-  padding-left: 12px;
-  padding-right: 12px;
-`;
-
-export default Input;
+export default InputContainer;
